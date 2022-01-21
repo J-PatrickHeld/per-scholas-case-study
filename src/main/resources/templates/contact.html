@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Contact | ReedHeld</title>
+</head>
+<body>
+
+    <div class="main_container">
+
+        <!--menu-->
+        <div class="menu_container">
+            <div class="menu_item">
+                <nav>
+                    <a id="home" href="#" th:href="@{/}">Home</a>
+                    <a id="about" href="#" th:href="@{/about}">About</a>
+                    <a id="order" href="#" th:href="@{/orders/new}">Order Reeds</a>
+                    <a id="contact" href="#" th:href="@{/contact}">Contact</a>
+                    <a sec:authorize="isAnonymous()" id="login" href="#" th:href="@{/login}">Login</a>
+                    <div id="navbar" class="collapse navbar-collapse">
+           				<ul class="nav navbar-nav">
+              				<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+           				</ul>
+        			</div>
+                </nav>
+            </div>
+        </div>
+
+        <!--contact form-->
+        <div class="main_content">
+
+            <div class="title_container">
+                <h1>Let's get in touch!</h1> 
+            </div>
+
+            <form th:action="@{/contact}" method="POST">
+            
+            	<div th:if="${param.success}">
+            		<div><b>Message sent successfully!</b></div>
+            		<br>
+            	</div>
+            	            	
+                <label for="contact_name">Your Full Name*</label><br>
+                <input type="text" id="contact_name" name="contact_name" placeholder="Your name" /><br>
+                
+                <label for="email">Your E-mail Address*</label><br>
+                <input type="email" id="email" name="email" placeholder="Your email"><br>
+                
+                <label for="content">Message*</label><br>
+                <textarea id="content" name="content" placeholder="Your message"></textarea><br>
+                                
+                <div th:if="${param.success}">
+                	<br>
+            		<div><b>Message sent successfully!</b></div>
+            	</div>
+                
+                <button type="submit" id="submit_contact" style="font-size: 14pt; margin-top: 1em">Send</button>
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/scriptContact.js"></script>
+</body>
+</html>

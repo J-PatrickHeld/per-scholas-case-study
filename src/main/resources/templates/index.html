@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Home | ReedHeld</title>
+
+    <!--internal styling-->
+    <style>
+        #home_image {
+            height: 575px;
+            width: 375px;
+            border-radius: 2px;
+        }
+        .main_content {
+            display: flex;
+            flex-direction: row;
+        }
+        .home_image {
+            height: 385px;
+            overflow: hidden;
+            padding-right: 5em;
+            animation-name: homePicture;
+            animation-duration: 3s;
+        }
+        .title_words {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding: 0 6.5em;
+            font-family: 'PT Sans', sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="main_container">
+
+        <!--menu-->
+        <div class="menu_container">
+            <div class="menu_item">
+                <nav>
+                    <a id="home" href="#" th:href="@{/}">Home</a>
+                    <a id="about" href="#" th:href="@{/about}">About</a>
+                    <a id="order" href="#" th:href="@{/orders/new}">Order Reeds</a>
+                    <a id="contact" href="#" th:href="@{/contact}">Contact</a>
+                    <a sec:authorize="isAnonymous()" id="login" href="#" th:href="@{/login}">Login</a>
+                    <div id="navbar" class="collapse navbar-collapse">
+           				<ul class="nav navbar-nav">
+              				<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+           				</ul>
+        			</div>
+                </nav>
+            </div>
+        </div>
+
+        <!--create space between menu and lower block-->
+        <div style="background-color: rgba(230, 215, 213, 0); padding-top: 75px"></div>
+        
+        <!--title, subtitle, quote, picture-->
+        <div class="main_content">
+            <div class="title_words">
+                <h1 class="title" style="font-size: 40pt; margin: 0">Dr. Abby Y. Held</h1>
+                <h3 class="subtitle" style="font-size: 25pt; margin: 0; color: rgb(104, 103, 103)">Oboe</h3>
+
+                <p class="quote" style="margin-top: 6em">"...It is undeniable that Held was thoroughly intelligent and charming on the stage." - The Lawrentian</p>
+            </div>
+            <div class="home_image">
+                <img id="home_image" src="images/Abby Y. Held Headshot (1).jpg" />
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>

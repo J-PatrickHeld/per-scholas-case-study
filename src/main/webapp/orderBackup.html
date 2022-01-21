@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Order | ReedHeld</title>
+
+    <style>
+        .order_form {
+            margin: auto;
+            border: 2px solid black;
+            padding: 3em;
+        }
+        .order_form form {
+            margin: auto;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="main_container">
+
+        <!--menu-->
+        <div class="menu_container">
+            <div class="menu_item">
+                <nav>
+                    <a id="home" href="#" th:href="@{/}">Home</a>
+                    <a id="about" href="#" th:href="@{/about}">About</a>
+                    <a id="order" href="#" th:href="@{/order}">Order Reeds</a>
+                    <a id="login" href="#" th:href="@{/login}">Login</a>
+                    <a id="contact" href="#" th:href="@{contact}">Contact</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="main_content">
+
+            <div class="order_form">
+                <form>    
+                    <label for="news_name">First Name:</label>
+                    <input type="text" id="news_name" name="news_name" class="news_name"></input>
+                    
+                    <label for="address">Address:</label><br />
+                    <input type="text" id="address" name="address" class="address"></input>
+                    
+                    <label for="city">City:</label><br />
+                    <input type="text" id="city" name="city" class="city"></input>
+                    
+                    <label for="State">State:</label><br />
+                    <input type="text" id="state" name="state" class="state"></input>
+
+                    <button id="submit" type="submit" style="font-size: 14pt; margin-top: 1em">Submit Order</button>
+                </form>
+            </div>
+
+            <div class="append" id="append" style="width: 500px; height: 500px"></div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

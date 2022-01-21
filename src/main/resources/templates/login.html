@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Login | ReedHeld</title>
+    
+        <style>
+        .login {
+            margin: auto;
+            border: 2px solid black;
+            padding: 3em;
+        }
+        .login form {
+            margin: auto;
+        }
+    	</style>
+</head>
+<body>
+
+    <div class="main_container">
+
+        <!--menu-->
+        <div class="menu_container">
+            <div class="menu_item">
+                <nav>
+                    <a id="home" href="#" th:href="@{/}">Home</a>
+                    <a id="about" href="#" th:href="@{/about}">About</a>
+                    <a id="order" href="#" th:href="@{/orders/new}">Order Reeds</a>
+                    <a id="contact" href="#" th:href="@{/contact}">Contact</a>
+                    <a id="login" href="#" th:href="@{/login}">Login</a>
+                    <div id="navbar" class="collapse navbar-collapse">
+           				<ul>
+              				<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+           				</ul>
+        			</div>
+                </nav>
+            </div>
+        </div>
+
+        <!--videos, (audio)-->
+        <div class="main_content">
+
+            <div class="login">
+                <form th:action="@{/login}" method="POST">
+                
+                	<div th:if="${param.error}">
+                		<div><b>Invalid username or password</b></div>
+                		<p></p>
+                	</div>
+                    
+                    <div th:if="${param.logout}">
+                    	<div><b>You have been logged out</b></div>
+                    	<p></p>
+                    </div>
+                    
+                    <h1>User Login</h1>
+                    
+                    <label for="email">Email</label>:<br />
+                    <input type="text" id="email" name="email" class="email" placeholder="email" autofocus="autofocus"></input>
+                    
+                    <label for="password">Password</label>:<br />
+                    <input type="password" id="password" name="password" class="password" placeholder="password" autofocus="autofocus"></input>
+
+                    <input type="submit" name="login-submit" id="login-submit" value="Log In" style="width: 70px; height: 30px; font-size: 14pt; margin-top: 0.5em" />
+                </form>
+                <div>
+                	New user? <a th:href="@{/registration}">Register here</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+package com.jamesheld.oboestore;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class HeldJamesOboeStoreCaseStudyApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(HeldJamesOboeStoreCaseStudyApplication.class, args);
+	}
+
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>About | ReedHeld</title>
+</head>
+<body>
+
+    <div class="main_container">
+
+        <!--menu-->
+        <div class="menu_container">
+            <div class="menu_item">
+                <nav>
+                    <a id="home" href="#" th:href="@{/}">Home</a>
+                    <a id="about" href="#" th:href="@{/about}">About</a>
+                    <a id="order" href="#" th:href="@{/orders/new}">Order Reeds</a>
+                    <a id="contact" href="#" th:href="@{/contact}">Contact</a>
+                    <a sec:authorize="isAnonymous()" id="login" href="#" th:href="@{/login}">Login</a>
+                    <div id="navbar" class="collapse navbar-collapse">
+           				<ul class="nav navbar-nav">
+              				<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+           				</ul>
+        			</div>
+                </nav>
+            </div>
+        </div>
+
+        <!--title, image, bio, resume-->
+        <div class="main_content">
+            <!--title-->
+            <div class="title_container">
+                <h1 class="title">About</h1>
+            </div>
+
+            <!--bio-->
+            <div class="bio_content">
+                <div class="title_container" style="box-shadow: 0 2px 5px; width: 95%">
+                    <h1>Bio</h1>
+                </div>
+                <div class="degrees">
+                    <p>D.M.A. University of Cincinnati, College-Conservatory of Music<br>
+                    M.M. University of Colorado at Boulder<br>
+                    B.M.E. Baylor University</p>
+                </div>
+                <div class="bio" style="font-size: 13.5pt">
+                    <!--image-->
+                    <div class="about_image">
+                        <img id="about_image" src="images/Held.jpg" />
+                    </div>
+
+                    <p>
+                        Dr. Abby Yeakle Held serves as The Ohio State University's Lecturer of Oboe, where she was appointed in 2021. Dr. Held's duties include teaching Applied Oboe, Studio, Reed-Making, and coaching Chamber Music. Prior to joining the faculty at Ohio State, Dr. Held served as Adjunct Professor of Oboe at Stephen F. Austin State University (Nacogdoches, TX) and Adjunct Professor of Music at Lone Star College (Houston, TX).
+                    </p>
+                    
+                    <p>
+                        Recognized as both a Fulbright Scholar and a recipient of the Presser Foundation Award, Dr. Abby Yeakle Held is distinguished in her field as an academic. Dr. Held's Fulbright research surrounded the Viennese oboe: its history, tradition, current status, and cross-application to the modern French conservatory oboist. Her article titled: “The Viennese Oboe and its Classical/Romantic Traditions” is published in the International Double Reed Society's Double Reed journal, and is the first resource dedicated to instrument in English. As one of the foremost scholars of the Viennese oboe outside of the instrument's native community, Dr. Held is sought after for masterclasses and lecture-recitals as a guest artist at universities across the country. Dr. Held was invited to present a Viennese oboe Lecture-Recital at the International Double Reed Society's 50th Anniversary Conference (2021).
+                    </p>
+                    
+                    <p>
+                        Dr. Abby Yeakle Held serves as Associate Principal Oboe of the Midland-Odessa Symphony. She has performed internationally in Austria and Belgium, including appearing as principal oboe with the Brunner VielHarmonie (Brunn am Gibirge, Austria) and a recital at the United States Embassy in Vienna, Austria. Dr. Held has performed with various orchestras across the nation including the Colorado Symphony Orchestra, Cheyenne Symphony, Wyoming Symphony, Lafayette Symphony, as well as the Castleton Festival Orchestra under the baton of the late Maestro Lorin Maazel. Dr. Held's varied career as a performer has also allowed her the opportunity to perform at the iconic Red Rocks outdoor amphitheater with DeVotchKa, a popular Indie Rock band out of Denver, Colorado.
+                    </p>
+                    
+                    <p>
+                        As a passionate oboe pedagogue, Dr. Held gives frequent masterclasses at high schools and junior highs. She has been an appointed reviewer for Texas's UIL Prescribed Music List for Mixed Woodwind Trio, adding over 40 works to the list. Additionally, she is one of the co-creators of the Double Reed chamber music category. Dr. Held has taught for Bocal Majority and Operation O.B.O.E. Camps as a Premier Instructor since 2017, and also serves as the Oboe Expert for the Phantom Regiment Academy's “Expert Lesson Series.”
+                    </p>
+                    
+                    <p>
+                        Dr. Held plays a model 2001 Marigaux oboe as well as a Rado Viennese oboe that was made for her personally by Karl Radovanovich in Vienna, Austria. Her principal teachers include: Univ.-Prof. Harald Hörth, Dr. Mark Ostoich, Peter Cooper, Dr. Doris DeLoach, and Emily Brebach.
+                    </p>
+
+                    <p>
+                        Together with her husband, James, Dr. Held enjoys traveling, game nights with friends, and improving her German language skills.
+                    </p>
+                </div>
+            </div>
+
+            <!--resume-->
+            <div class="resume_content" style="width: 100%">
+                <div class="title_container" style="padding: 1px; box-shadow: 0 2px 5px; width: 95%; margin: auto">
+                    <h1>Resume</h1>
+                </div>
+            </div>
+            <div class="resume">
+                <iframe th:src="@{/files/HELD_James_Resume.pdf#toolbar=0}"></iframe>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
